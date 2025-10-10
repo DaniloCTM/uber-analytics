@@ -4,3 +4,5 @@ pandas
 numpy
 matplotlib
 notebook
+jupyterlab
+ipykernel
