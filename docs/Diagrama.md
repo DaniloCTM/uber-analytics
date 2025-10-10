@@ -62,3 +62,29 @@ O dicionário de dados a seguir contém informações sobre cada um dos atributo
 | Customer_Rating                     | Avaliação média dada pelo motorista ao cliente.                          | NUMERIC(3,2)        |                       |
 | Payment_Method                      | Forma de pagamento utilizada                                             | VARCHAR(20)         |                       |
 
+
+## Data Definition Language (DDL)
+
+O comando SQL abaixo cria o banco de dados Uber, baseando-se no MER, DER e dicionário de dados
+```sql
+CREATE TABLE IF NOT EXISTS Uber (
+    Booking_ID VARCHAR(20) PRIMARY KEY,
+    Date DATE NOT NULL,
+    Time TIME NOT NULL,
+    Booking_Status VARCHAR(30) NOT NULL,
+    Customer_ID VARCHAR(20) NOT NULL,
+    Vehicle_Type VARCHAR(30) NOT NULL,
+    Pickup_Location VARCHAR(100) NOT NULL,
+    Drop_Location VARCHAR(100) NOT NULL,
+    Avg_VTAT NUMERIC(5,2),
+    Avg_CTAT NUMERIC(5,2),
+    Reason_for_cancelling_by_Customer TEXT,
+    Driver_Cancellation_Reason TEXT,
+    Incomplete_Rides_Reason TEXT,
+    Booking_Value NUMERIC(7,2),
+    Ride_Distance NUMERIC(6,2),
+    Driver_Ratings NUMERIC(3,2),
+    Customer_Rating NUMERIC(3,2),
+    Payment_Method VARCHAR(20)
+);
+```
