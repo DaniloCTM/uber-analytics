@@ -1,0 +1,25 @@
+# -----------------------------
+# Docker volumes e dados gerados
+# -----------------------------
+docker/data/
+**/__pycache__/
+*.pyc
+
+# -----------------------------
+# Jupyter notebooks
+# -----------------------------
+.ipynb_checkpoints/
+
+# -----------------------------
+# Arquivos temporários do sistema
+# -----------------------------
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Se tiver senhas locais ou configs sensíveis
+# -----------------------------
+.env
