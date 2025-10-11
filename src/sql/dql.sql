@@ -36,4 +36,4 @@ GROUP BY
 HAVING
     COUNT("Booking_ID") > 100 -- Filtra tipos de veículo com poucas corridas para relevância estatística
 ORDER BY
-    avaliacao_media_motorista DESC;ssssss
+    avaliacao_media_motorista DESC;

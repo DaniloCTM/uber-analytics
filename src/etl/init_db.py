@@ -103,7 +103,7 @@ def run_etl():
     df_silver.drop_duplicates(subset=['Booking_ID'], keep='first', inplace=True)
     final_count = len(df_silver)
     if initial_count != final_count:
-        print(f"⚠️  Removidas {initial_count - final_count} linhas duplicadas baseadas no Booking_ID.")
+        print(f"  Removidas {initial_count - final_count} linhas duplicadas baseadas no Booking_ID.")
 
     # Tratamento de valores nulos (NaN)
     df_silver['Incomplete_Rides_Reason'].fillna('Reason Unknown', inplace=True)

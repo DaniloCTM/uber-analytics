@@ -6,20 +6,18 @@ Este documento apresenta a modelagem de dados desenvolvida para o projeto Uber R
 
 A modelagem tem como finalidade representar, de forma conceitual e lógica, as principais entidades, relacionamentos e atributos necessários para compor o banco de dados MySQL containerizado que servirá como base para o processo ETL (Raw → Silver → Gold).
 
-## 1. Modelo Entidade-Relacionamento (MER)
+## 1. MER
 
-O Modelo Entidade-Relacionamento (também representado como MREL) apresenta a estrutura conceitual dos dados, identificando os principais atributos e suas relações hierárquicas dentro da entidade central Uber.
+1. Entidade
 
-![Figura 1 – MER/MREL do Sistema Uber Ride Analytics](./assets/UBER_MREL.png)
+* Uber
 
-### Descrição:
+2. Atributos
 
-- A entidade Uber representa o registro principal de uma corrida.
-- Cada corrida é identificada de forma única pelo atributo Booking_ID.
-- A estrutura agrupa informações sobre o cliente, motorista, localização, tipo de veículo, avaliações, cancelamentos e métricas de tempo.
-- Essa representação hierárquica facilita o entendimento do relacionamento entre atributos e o fluxo de dados ao longo do processo analítico.
+    Uber(__Booking_ID__ ,Date , Time, Booking_Status, Customer_ID, Vehicle_Type, Pickup_Location, Drop_Location,Avg_VTAT, Avg_CTAT, Reason_for_cancelling_by_Customer, Driver_Cancellation_Reason, Incomplete_Rides_Reason, Booking_Value, Ride_Distance ,Driver_Ratings ,Customer_Rating , Payment_Method)
 
-## 2. Diagrama Entidade-Relacionamento Lógico (DER / DLD)
+
+## 2. DLD
 
 O Diagrama Lógico de Dados (DLD) representa o modelo físico preliminar da base de dados, com os campos e chaves primárias definidos. A figura abaixo mostra a tabela principal Uber, com todos os atributos que compõem o conjunto de dados extraído e tratado.
 
@@ -36,6 +34,17 @@ O Diagrama Lógico de Dados (DLD) representa o modelo físico preliminar da base
   - Status e cancelamentos (Booking_Status, Reason_for_Cancelling_by_Customer, Driver_Cancellation_Reason, Incomplete_Rides_Reason)
   - Informações financeiras (Booking_Value, Payment_Method)
   - Características do veículo (Vehicle_Type)
+
+## 3. DER
+
+![Figura 1 – MER/MREL do Sistema Uber Ride Analytics](./assets/UBER_MREL.png)
+
+### Descrição:
+
+- A entidade Uber representa o registro principal de uma corrida.
+- Cada corrida é identificada de forma única pelo atributo Booking_ID.
+- A estrutura agrupa informações sobre o cliente, motorista, localização, tipo de veículo, avaliações, cancelamentos e métricas de tempo.
+- Essa representação hierárquica facilita o entendimento do relacionamento entre atributos e o fluxo de dados ao longo do processo analítico.
 
 ## Dicionário de Dados
 
@@ -63,6 +72,7 @@ O dicionário de dados a seguir contém informações sobre cada um dos atributo
 | Payment_Method                      | Forma de pagamento utilizada                                             | VARCHAR(20)         |                       |
 
 
+
 ## Data Definition Language (DDL)
 
 O comando SQL abaixo cria o banco de dados Uber, baseando-se no MER, DER e dicionário de dados
@@ -88,3 +98,4 @@ CREATE TABLE IF NOT EXISTS Uber (
     Payment_Method VARCHAR(20)
 );
 ```
+
