@@ -7,3 +7,4 @@ notebook
 jupyterlab
 ipykernel
 dotenv
+seaborn
