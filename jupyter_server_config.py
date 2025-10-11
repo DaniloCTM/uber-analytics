@@ -11,7 +11,7 @@ if password:
 else:
     c.ServerApp.password = ""
 
-c.ServerApp.token = ''          
-c.ServerApp.allow_origin = '*'   
+c.ServerApp.token = ''
+c.ServerApp.allow_origin = '*'
 c.ServerApp.port = 8888
 c.ServerApp.open_browser = False

@@ -1,5 +1,7 @@
 FROM jupyter/base-notebook:latest
 
+USER root
+
 WORKDIR /home/jovyan/work
 
 COPY requirements.txt .
@@ -11,3 +13,4 @@ COPY jupyter_server_config.py /home/jovyan/.jupyter/
 EXPOSE 8888
 
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+USER $NB_UID
