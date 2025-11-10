@@ -14,26 +14,5 @@ services:
       timeout: 5s
       retries: 5
 
-  init-db:
-    build: . 
-    env_file:
-      - ./.env
-    command: python src/etl/init_db.py
-    volumes:
-      - .:/home/jovyan/work
-    depends_on:
-      db:
-        condition: service_healthy
-
-  jupyter:
-    build: .
-    container_name: jupyter-notebook
-    ports:
-      - "8888:8888"
-    volumes:
-      - ./jupyter:/home/jovyan/work
-    depends_on:
-      - init-db 
-
 volumes:
   uber_data:
