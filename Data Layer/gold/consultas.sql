@@ -200,7 +200,6 @@ WHERE f.flg_cmp = 'Yes'
 GROUP BY r.pmt_mtd
 ORDER BY receita_total DESC;
 
-
 -- ===============================================
 -- 9. ANÁLISE DE AVALIAÇÕES (QUALIDADE DO SERVIÇO)
 -- ===============================================
@@ -232,15 +231,7 @@ GROUP BY
         WHEN f.rtg_drv >= 1.0 THEN '1 Estrela (1.0-1.9)'
         ELSE 'Sem Avaliação'
     END
-ORDER BY 
-    CASE 
-        WHEN f.rtg_drv >= 4.5 THEN 1
-        WHEN f.rtg_drv >= 4.0 THEN 2
-        WHEN f.rtg_drv >= 3.0 THEN 3
-        WHEN f.rtg_drv >= 2.0 THEN 4
-        WHEN f.rtg_drv >= 1.0 THEN 5
-        ELSE 6
-    END;
+ORDER BY 1;
 
 
 -- ===============================================
@@ -286,9 +277,9 @@ GROUP BY dt.dow,
              ELSE 'Madrugada (0-5h)'
          END
 ORDER BY dt.dow, 
-         CASE periodo
-             WHEN 'Manhã (6-11h)' THEN 1
-             WHEN 'Tarde (12-17h)' THEN 2
-             WHEN 'Noite (18-23h)' THEN 3
-             ELSE 4
+         CASE 
+             WHEN EXTRACT(HOUR FROM dt.hor) BETWEEN 6 AND 11 THEN 'Manhã (6-11h)'
+             WHEN EXTRACT(HOUR FROM dt.hor) BETWEEN 12 AND 17 THEN 'Tarde (12-17h)'
+             WHEN EXTRACT(HOUR FROM dt.hor) BETWEEN 18 AND 23 THEN 'Noite (18-23h)'
+             ELSE 'Madrugada (0-5h)'
          END;
