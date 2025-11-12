@@ -1,12 +1,3 @@
--- ===============================================
--- Gold DDL: Data Warehouse schema (Star Schema)
--- Schema: dwh
--- ===============================================
--- Arquitetura Medallion - Camada GOLD
--- 4 Dimensões reduzidas + 1 Tabela Fato
--- Mnemônicos silábicos (3-4 caracteres)
--- Documentação completa: docs/Mnemonicos_DWH.md
--- ===============================================
 
 CREATE SCHEMA IF NOT EXISTS dwh;
 
