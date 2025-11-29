@@ -23,3 +23,8 @@ Thumbs.db
 # Se tiver senhas locais ou configs sensíveis
 # -----------------------------
 .env
+venv
+.venv
+./venv
+/venv
+venv/
